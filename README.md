@@ -1,5 +1,28 @@
-# ProofLoan — Evidence-Backed Cross-Chain Underwriting
+# ProofLoan A.I.
 
+## Verifiable Cross-Chain Credit Underwriting for the Real World
+
+Blockchain Whitepaper: https://docs.google.com/document/d/1heJo1Bt5VC07fGQ4jd_t2f2MR8wRzQsVBjmx91Chjxw/edit?tab=t.0
+
+> **BUIDL CTC 2026 Fall — BUIDL For The Real World**
+> **Primary track:** AI
+> **Product surface:** Cross-chain credit underwriting / DeFi / RWA infrastructure
+> **Cross-chain protocol:** Attestcoin Protocol
+> **Execution target:** Creditcoin testnet demo boundary
+> **Source chains:** Ethereum Sepolia + Polygon Amoy
+
+<p align="center">
+  <strong>ProofLoan turns cross-chain transaction history into a bounded, auditable loan decision.</strong><br/>
+  Cryptographic evidence in → typed features → advisory AI → deterministic RiskGuard → constrained execution.
+</p>
+
+<p align="center">
+  <a href="https://github.com/lucylow/PROOFLOAN---BUIDL-CTC-2026-Fall---BUIDL-For-The-Real-World">Repository</a> •
+  <a href="https://dorahacks.io/hackathon/buidl-ctc-2026-fall/detail">Hackathon</a> •
+  <a href="https://docs.creditcoin.org/creditcoin-usc">Attestcoin Protocol Docs</a>
+</p>
+
+---
 > **Verified evidence → typed features → advisory AI → deterministic policy → explainable offer → controlled cross-chain execution**
 
 ProofLoan is an evidence-first lending application designed around a simple principle:
