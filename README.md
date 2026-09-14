@@ -10,7 +10,7 @@ Blockchain Whitepaper:
 
 Manus Link 
 - Old Link: https://proofloan-4pbq23bo.manus.space/?code=gHWSfmjvWSzKwV27ZumFFK 
-- New Link: 
+- New Link: https://proofloan-4ucxe22u.manus.space
 
 > **AI can advise, but verified evidence and deterministic policy decide what is allowed to cross the execution boundary.**
 
