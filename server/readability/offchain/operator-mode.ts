@@ -1,0 +1,1 @@
+export type WorkerMode='active'|'draining'|'paused';export class OperatorMode{private mode:WorkerMode='active';set(mode:WorkerMode){this.mode=mode}get(){return this.mode}canDiscover(){return this.mode==='active'}canSubmit(){return this.mode==='active'||this.mode==='draining'}}

@@ -1,0 +1,2 @@
+import type { AiDecisionEnvelope } from "./aiTypes";
+export function validateEnvelope(e:AiDecisionEnvelope):string[]{const errors:string[]=[];if(e.decision.pd90<e.decision.pd30)errors.push("pd90 must be >= pd30");if(e.decision.confidence<0||e.decision.confidence>1)errors.push("confidence out of range");if(e.uncertainty.total<0||e.uncertainty.total>1)errors.push("uncertainty out of range");if(!e.outputFingerprint)errors.push("missing output fingerprint");return errors;}

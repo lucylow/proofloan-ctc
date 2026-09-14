@@ -1,0 +1,1 @@
+import {describe,it,expect} from "vitest";import {CircuitBreaker} from "./circuit-breaker";describe("circuit",()=>{it("opens after failures",()=>{const c=new CircuitBreaker(2,1000,()=>0);c.failure();c.failure();expect(c.getState()).toBe("open")})})

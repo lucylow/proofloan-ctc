@@ -1,0 +1,3 @@
+import type { GovernanceProposal } from "../core/types";
+export interface AttestorGovernanceAdapter { validateProposal(p:GovernanceProposal):Promise<{ok:boolean; reasons:string[]}>; apply(p:GovernanceProposal):Promise<{txHash:string; applied:boolean}>; }
+export class DryRunAttestorGovernanceAdapter implements AttestorGovernanceAdapter { async validateProposal(p:GovernanceProposal){const reasons:string[]=[];if(p.kind!=="attestor-admission"&&p.kind!=="attestor-policy")reasons.push("wrong proposal kind");return {ok:reasons.length===0,reasons};} async apply(p:GovernanceProposal){return {txHash:`dry-${p.id}`,applied:true};} }

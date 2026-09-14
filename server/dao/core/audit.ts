@@ -1,0 +1,1 @@
+import { sha256Hex } from "./crypto"; export interface GovernanceAudit{type:string;at:string;actor:string;payload:unknown;hash:string;} export function buildAudit(type:string,actor:string,payload:unknown,at=new Date().toISOString()):GovernanceAudit{return{type,actor,payload,at,hash:sha256Hex({type,actor,payload,at})};}

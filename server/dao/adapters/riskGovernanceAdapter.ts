@@ -1,0 +1,3 @@
+import type { GovernanceProposal } from "../core/types";
+export interface RiskGovernanceAdapter { validateProposal(p:GovernanceProposal):Promise<{ok:boolean;reasons:string[]}>; apply(p:GovernanceProposal):Promise<{txHash:string;applied:boolean}>; }
+export class DryRunRiskGovernanceAdapter implements RiskGovernanceAdapter { async validateProposal(p:GovernanceProposal){const r:string[]=[]; if(p.kind!=="risk-policy"&&p.kind!=="parameter")r.push("unsupported risk governance kind"); return {ok:r.length===0,reasons:r};} async apply(p:GovernanceProposal){return {txHash:`dry-${p.id}`,applied:true};} }

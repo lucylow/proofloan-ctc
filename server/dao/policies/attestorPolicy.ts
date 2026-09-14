@@ -1,0 +1,3 @@
+export interface AttestorGovernancePolicy { minActiveAttestors:number; minQuorumBps:number; maxOperatorRewardBps:number; requireUniqueOperators:boolean; allowEmergencyRemoval:boolean; }
+export const DEFAULT_ATTESTOR_GOVERNANCE_POLICY:AttestorGovernancePolicy={minActiveAttestors:3,minQuorumBps:6670,maxOperatorRewardBps:9000,requireUniqueOperators:true,allowEmergencyRemoval:true};
+export function validateAttestorPolicy(p:AttestorGovernancePolicy):string[]{const e:string[]=[];if(p.minActiveAttestors<1)e.push("minActiveAttestors");if(p.minQuorumBps<5000||p.minQuorumBps>10000)e.push("minQuorumBps");if(p.maxOperatorRewardBps<0||p.maxOperatorRewardBps>10000)e.push("maxOperatorRewardBps");if(!p.requireUniqueOperators)e.push("unique operators required");return e;}

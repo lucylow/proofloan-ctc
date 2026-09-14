@@ -1,0 +1,1 @@
+export class FailureBudget{private failures=0;constructor(private readonly maxFailures:number){}recordFailure(){this.failures++}remaining(){return Math.max(0,this.maxFailures-this.failures)}exhausted(){return this.failures>=this.maxFailures}reset(){this.failures=0}}

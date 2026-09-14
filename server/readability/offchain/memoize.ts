@@ -1,0 +1,1 @@
+export class Memoize<K,V>{private cache=new Map<K,V>();constructor(private readonly compute:(key:K)=>Promise<V>){}async get(key:K){if(this.cache.has(key))return this.cache.get(key)!;const value=await this.compute(key);this.cache.set(key,value);return value}clear(){this.cache.clear()}}

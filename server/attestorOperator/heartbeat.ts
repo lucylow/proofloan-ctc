@@ -1,0 +1,2 @@
+export type Heartbeat={operatorId:string;at:string;block:number;status:'healthy'|'degraded'|'offline';latencyMs:number};
+export class HeartbeatTracker{private last?:Heartbeat;private failures=0;record(heartbeat:Heartbeat){this.last={...heartbeat};this.failures=heartbeat.status==='healthy'?0:this.failures+1}miss(){this.failures++}snapshot(){return {last:this.last?{...this.last}:undefined,consecutiveFailures:this.failures,stale:!this.last||Date.now()-Date.parse(this.last.at)>120000}}}

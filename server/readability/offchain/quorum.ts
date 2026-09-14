@@ -1,0 +1,1 @@
+export function quorum<T>(values:T[],same:(a:T,b:T)=>boolean,threshold:number):T|null{const groups:T[][]=[];for(const value of values){const group=groups.find(g=>same(g[0],value));if(group)group.push(value);else groups.push([value])}groups.sort((a,b)=>b.length-a.length);return groups[0]&&groups[0].length>=threshold?groups[0][0]:null}

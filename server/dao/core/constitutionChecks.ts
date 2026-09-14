@@ -1,0 +1,1 @@
+import { PROOFLOAN_CONSTITUTION } from "./constitution"; export function validateConstitutionalInvariant(change:{selector:string}):string[]{const e:string[]=[];if(PROOFLOAN_CONSTITUTION.riskGuardCannotBeDisabledByStandardProposal&&change.selector.includes("disableRiskGuard"))e.push("invariant");return e;}

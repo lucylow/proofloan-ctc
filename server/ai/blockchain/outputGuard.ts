@@ -1,0 +1,2 @@
+export interface ModelBlockchainOutput { pdAdjustment:number; confidence:number; riskTier:string; reasons:string[]; }
+export function guardBlockchainOutput(o:ModelBlockchainOutput):ModelBlockchainOutput { return { ...o, pdAdjustment:Math.max(0,Math.min(1,Number(o.pdAdjustment)||0)), confidence:Math.max(0,Math.min(1,Number(o.confidence)||0)), riskTier:String(o.riskTier||'ABSTAIN'), reasons:Array.isArray(o.reasons)?o.reasons.slice(0,8).map(String):[] }; }

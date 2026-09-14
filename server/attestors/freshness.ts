@@ -1,0 +1,3 @@
+export type Freshness = "fresh" | "stale" | "expired";
+export function classifyFreshness(timestamp: string, freshSeconds = 300, expiredSeconds = 1800, now = Date.now()): Freshness { const t = Date.parse(timestamp); if (!Number.isFinite(t)) return "expired"; const age = Math.max(0, (now - t) / 1000); if (age <= freshSeconds) return "fresh"; if (age <= expiredSeconds) return "stale"; return "expired"; }
+export function requireFresh(timestamp: string, maxAgeSeconds = 300, now = Date.now()): void { const t = Date.parse(timestamp); if (!Number.isFinite(t) || now - t > maxAgeSeconds * 1000) throw new Error("Attestor evidence is stale."); }

@@ -1,0 +1,1 @@
+export function diffFeatures(a:Record<string,number>,b:Record<string,number>){ const keys=new Set([...Object.keys(a),...Object.keys(b)]); const out:Record<string,{before:number;after:number;delta:number}>={}; for(const k of keys){ const before=Number(a[k]??0),after=Number(b[k]??0); out[k]={before,after,delta:after-before}; } return out; }

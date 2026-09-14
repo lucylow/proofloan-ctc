@@ -1,0 +1,1 @@
+export function mergeObservations<T extends { txHash:string; chainId:string }>(items:T[]):T[]{ const seen=new Set<string>(); const out:T[]=[]; for(const x of items){const k=`${x.chainId}:${x.txHash.toLowerCase()}`; if(seen.has(k))continue; seen.add(k); out.push(x);} return out; }

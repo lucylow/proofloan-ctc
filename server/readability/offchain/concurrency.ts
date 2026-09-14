@@ -1,0 +1,1 @@
+export class Semaphore{private active=0;private waiters:Array<()=>void>=[];constructor(private readonly limit:number){}async acquire(){if(this.active<this.limit){this.active++;return()=>this.release()}await new Promise<void>(r=>this.waiters.push(r));this.active++;return()=>this.release()}private release(){this.active--;this.waiters.shift()?.()}}

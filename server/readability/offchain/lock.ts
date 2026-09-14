@@ -1,0 +1,1 @@
+export class AsyncLock{private busy=false;private waiters:Array<()=>void>=[];async run<T>(fn:()=>Promise<T>):Promise<T>{if(this.busy)await new Promise<void>(r=>this.waiters.push(r));this.busy=true;try{return await fn()}finally{this.busy=false;this.waiters.shift()?.()}}}

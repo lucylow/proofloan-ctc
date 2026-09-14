@@ -1,0 +1,1 @@
+export function pdAdjustment(basePd:number,blockchainScore:number,confidence:number){ const bounded=Math.max(0,Math.min(1,basePd)); const adj=(1-blockchainScore)*0.15*confidence; return Math.max(0,Math.min(1,bounded+adj)); }

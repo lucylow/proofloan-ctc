@@ -1,0 +1,4 @@
+import type { WorkerConfig } from "./types";
+export const defaultWorkerConfig:WorkerConfig={workerId:"proofloan-readability",environment:"cc3-testnet",pollIntervalMs:3000,batchSize:20,maxAttempts:8,leaseMs:30_000,shutdownGraceMs:15_000,reorgBuffer:2,minConfirmations:12,proofTimeoutMs:120_000,submissionTimeoutMs:120_000,attestationTimeoutMs:120_000,maxLogRange:2_000,rpcQuorum:1,maxConcurrentJobs:4};
+function numberEnv(name:string,fallback:number){const raw=process.env[name];const n=raw?Number(raw):fallback;return Number.isFinite(n)&&n>=0?n:fallback;}
+export function loadWorkerConfig(overrides:Partial<WorkerConfig>={}):WorkerConfig{return {...defaultWorkerConfig,pollIntervalMs:numberEnv("READABILITY_POLL_MS",defaultWorkerConfig.pollIntervalMs),batchSize:numberEnv("READABILITY_BATCH",defaultWorkerConfig.batchSize),gasAware:process.env.ATTESTCOIN_GAS_AWARE==="true",...overrides};}

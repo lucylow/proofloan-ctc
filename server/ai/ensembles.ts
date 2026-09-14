@@ -1,0 +1,3 @@
+import type { Decision, FeatureVector, VerifiedFact } from "@shared/proofloan";
+import { baselineScore } from "./baseline";
+export function ensembleScore(models:Array<(f:FeatureVector,x:VerifiedFact[])=>Decision>,f:FeatureVector,x:VerifiedFact[]):Decision{if(!models.length)return baselineScore(f,x);const ds=models.map(m=>m(f,x));const pd30=ds.reduce((s,d)=>s+d.pd30,0)/ds.length;const pd90=ds.reduce((s,d)=>s+d.pd90,0)/ds.length;const confidence=ds.reduce((s,d)=>s+d.confidence,0)/ds.length;return {...ds[0],pd30,pd90,confidence,decisionHash:JSON.stringify({pd30,pd90,confidence}).length.toString(16).padStart(24,"0").slice(-24)};}

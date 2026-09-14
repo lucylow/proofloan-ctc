@@ -1,0 +1,1 @@
+export class RetryBudget{constructor(private readonly max:number,private used=0){}consume(){if(this.used>=this.max)return false;this.used++;return true}remaining(){return Math.max(0,this.max-this.used)}}

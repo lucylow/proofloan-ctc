@@ -1,0 +1,2 @@
+import {LeaseManager} from './leases';
+export class WorkLease{constructor(private readonly leases:LeaseManager,private readonly owner:string,private readonly durationMs:number){}acquire(jobId:string){return this.leases.acquire(`job:${jobId}`,this.owner,this.durationMs)}renew(jobId:string){return this.leases.renew(`job:${jobId}`,this.owner,this.durationMs)}release(jobId:string){return this.leases.release(`job:${jobId}`,this.owner)}}

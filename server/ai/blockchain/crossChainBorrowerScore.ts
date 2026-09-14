@@ -1,0 +1,1 @@
+export function crossChainBorrowerScore(scores:number[],weights:number[]){ const n=Math.min(scores.length,weights.length); let s=0,w=0; for(let i=0;i<n;i++){ s+=scores[i]*weights[i]; w+=weights[i]; } return w?s/w:0; }

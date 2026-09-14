@@ -1,0 +1,2 @@
+export interface WalletVector { address:string; vector:number[]; }
+export function nearestWallet(target:number[],wallets:WalletVector[]){ let best:WalletVector|undefined, bestScore=-1; for(const w of wallets){ const n=Math.min(target.length,w.vector.length); let dot=0,a=0,b=0; for(let i=0;i<n;i++){dot+=target[i]*w.vector[i];a+=target[i]**2;b+=w.vector[i]**2;} const score=a&&b?dot/(Math.sqrt(a)*Math.sqrt(b)):0; if(score>bestScore){bestScore=score;best=w;} } return {wallet:best,score:Math.max(0,bestScore)}; }

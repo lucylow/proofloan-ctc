@@ -1,0 +1,1 @@
+export const AI_CONTRACTS={input:"verified facts + deterministic feature vector",output:"bounded PD30/PD90 + confidence + reason codes",guard:"RiskGuard remains final policy authority",fallback:"deterministic baseline",abstention:"allowed on uncertainty"} as const;

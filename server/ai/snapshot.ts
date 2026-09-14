@@ -1,0 +1,2 @@
+import type { AiDecisionEnvelope } from "./aiTypes"; import { shortHash } from "./fingerprint";
+export type AiSnapshot={id:string,createdAt:string,envelope:AiDecisionEnvelope,hash:string}; export function createSnapshot(e:AiDecisionEnvelope):AiSnapshot{const id=`snap_${shortHash({requestId:e.requestId,output:e.outputFingerprint},16)}`;return {id,createdAt:new Date().toISOString(),envelope:e,hash:shortHash(e,32)}}

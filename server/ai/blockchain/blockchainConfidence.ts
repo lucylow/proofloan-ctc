@@ -1,0 +1,1 @@
+export function blockchainConfidence(coverage:number,freshness:number,sourceReliabilityScore:number,anomaly:number){ return Math.max(0,Math.min(1,0.35*coverage+0.2*freshness+0.3*sourceReliabilityScore+0.15*(1-anomaly))); }

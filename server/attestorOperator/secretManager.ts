@@ -1,0 +1,4 @@
+export interface OperatorSecretProvider{get(name:string):Promise<string|undefined>}
+export class EnvSecretProvider implements OperatorSecretProvider{async get(name:string){return process.env[name];}}
+export class MapSecretProvider implements OperatorSecretProvider{constructor(private values:Record<string,string>){} async get(name:string){return this.values[name];}}
+export class CachingSecretProvider implements OperatorSecretProvider{private cache=new Map<string,string>(); constructor(private readonly source:OperatorSecretProvider){} async get(name:string){if(this.cache.has(name))return this.cache.get(name); const value=await this.source.get(name); if(value)this.cache.set(name,value); return value;} clear(){this.cache.clear();}}

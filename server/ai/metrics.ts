@@ -1,0 +1,1 @@
+export class AiMetrics{private counters=new Map<string,number>(); inc(name:string,v=1){this.counters.set(name,(this.counters.get(name)||0)+v)} get(name:string){return this.counters.get(name)||0} snapshot(){return Object.fromEntries(this.counters)}} export const aiMetrics=new AiMetrics();

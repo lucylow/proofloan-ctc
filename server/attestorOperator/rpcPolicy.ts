@@ -1,0 +1,4 @@
+import type { RpcEndpoint, RpcRole } from './types';
+export type RpcPolicy={role:RpcRole;requireWebSocket:boolean;requireHistorical:boolean;maxConcurrency:number;recommendSelfHosted:boolean};
+export function rpcPolicy(role:RpcRole):RpcPolicy{return role==='ethereum'?{role,requireWebSocket:true,requireHistorical:true,maxConcurrency:20,recommendSelfHosted:true}:{role,requireWebSocket:true,requireHistorical:false,maxConcurrency:8,recommendSelfHosted:true}}
+export function validateRpcEndpoint(endpoint:RpcEndpoint,policy=rpcPolicy(endpoint.role)):string[]{const e:string[]=[];if(policy.requireWebSocket&&!['ws','wss'].includes(endpoint.scheme))e.push('WebSocket transport required.');if(policy.requireHistorical&&!endpoint.supportsHistoricalBlocks)e.push('Historical block access required for Attestor continuity work.');if(endpoint.maxConcurrency<1||endpoint.maxConcurrency>policy.maxConcurrency)e.push(`Concurrency must be 1..${policy.maxConcurrency}.`);return e}

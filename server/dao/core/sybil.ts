@@ -1,0 +1,1 @@
+export interface IdentitySignal{address:string;ageDays:number;txCount:number;proofCount:number;} export function scoreSybilRisk(s:IdentitySignal):number{const age=Math.min(1,s.ageDays/30), tx=Math.min(1,s.txCount/20), proofs=Math.min(1,s.proofCount/5);return 1-((age+tx+proofs)/3);}

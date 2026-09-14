@@ -1,0 +1,1 @@
+import { describe,it,expect } from "vitest"; import { backoffDelay } from "./backoff"; describe("backoff",()=>{it("stays bounded",()=>{const d=backoffDelay(9,{baseMs:100,maxMs:1000,jitterRatio:0},"transient");expect(d).toBe(1000)});});

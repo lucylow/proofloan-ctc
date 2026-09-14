@@ -1,0 +1,1 @@
+export class IdempotencyRegistry{private keys=new Set<string>();reserve(key:string){if(this.keys.has(key))return false;this.keys.add(key);return true}has(key:string){return this.keys.has(key)}release(key:string){this.keys.delete(key)}}

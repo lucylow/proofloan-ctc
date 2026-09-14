@@ -1,0 +1,1 @@
+export function riskChangeMagnitude(before:number,after:number):number{return Math.abs(after-before);} export function needsElevatedReview(before:number,after:number,threshold=0.15){return riskChangeMagnitude(before,after)>=threshold;}

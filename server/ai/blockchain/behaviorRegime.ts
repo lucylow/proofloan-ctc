@@ -1,0 +1,1 @@
+export function behaviorRegime(features:{transactionCount30d:number;activeDays30d:number;volatilitySignal:number}){ if(features.transactionCount30d<3)return 'DORMANT'; if(features.volatilitySignal>0.75)return 'VOLATILE'; if(features.activeDays30d>20)return 'CONSISTENT'; return 'INTERMITTENT'; }

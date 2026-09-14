@@ -1,0 +1,1 @@
+export class Heartbeat{private timer?:ReturnType<typeof setInterval>;start(cb:()=>void,interval:number){this.stop();this.timer=setInterval(cb,interval)}stop(){if(this.timer)clearInterval(this.timer);this.timer=undefined}}

@@ -1,0 +1,2 @@
+export type SourceContract={address:string;chainId:string;eventNames:Set<string>};
+export class SourceContractRegistry{private contracts=new Map<string,SourceContract>();register(c:SourceContract){this.contracts.set(`${c.chainId}:${c.address.toLowerCase()}`,c)}get(chainId:string,address:string){return this.contracts.get(`${chainId}:${address.toLowerCase()}`)}allows(chainId:string,address:string,eventName:string){return this.get(chainId,address)?.eventNames.has(eventName)??false}}

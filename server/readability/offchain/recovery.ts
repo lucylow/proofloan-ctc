@@ -1,0 +1,2 @@
+export type RecoveryPlan={action:'resume'|'rebuild-proof'|'rescan'|'dead-letter';reason:string};
+export function recoveryPlan(phase:string,lastError?:string):RecoveryPlan{if(!lastError)return{action:'resume',reason:'no error'};if(/reorg/i.test(lastError))return{action:'rescan',reason:lastError};if(/proof/i.test(lastError))return{action:'rebuild-proof',reason:lastError};if(phase==='submitted')return{action:'resume',reason:'verify receipt'};return{action:'dead-letter',reason:lastError}}

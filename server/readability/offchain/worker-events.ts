@@ -1,0 +1,2 @@
+export type WorkerEvent={type:'job.created'|'job.retry'|'job.completed'|'job.failed'|'job.dead-letter';time:string;jobId:string;meta?:Record<string,unknown>};
+export class WorkerEventBus{private listeners:Array<(e:WorkerEvent)=>void>=[];on(fn:(e:WorkerEvent)=>void){this.listeners.push(fn);return()=>this.listeners=this.listeners.filter(x=>x!==fn)}emit(e:WorkerEvent){for(const fn of this.listeners)fn(e)}}

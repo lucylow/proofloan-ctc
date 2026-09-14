@@ -1,0 +1,1 @@
+export class Backpressure{private blocked=false;block(){this.blocked=true}unblock(){this.blocked=false}isBlocked(){return this.blocked}shouldPause(depth:number,limit:number){return this.blocked||depth>=limit}}

@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest';import {IdempotencyRegistry} from './idempotency';describe('idempotency',()=>{it('rejects duplicate',()=>{const r=new IdempotencyRegistry();expect(r.reserve('x')).toBe(true);expect(r.reserve('x')).toBe(false)})})

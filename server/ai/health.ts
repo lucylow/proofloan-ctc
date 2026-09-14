@@ -1,0 +1,1 @@
+import { aiUnderwritingService } from "./service"; export function aiHealth(){const p=aiUnderwritingService.getProfile();return {status:p.status,model:p.id,version:p.version,cache:aiUnderwritingService.cache.size(),audit:aiUnderwritingService.audit.size(),timestamp:new Date().toISOString()}}

@@ -1,0 +1,1 @@
+export function driftScore(current:number[],reference:number[]){ if(!current.length||!reference.length)return 0; const cm=current.reduce((a,b)=>a+b,0)/current.length; const rm=reference.reduce((a,b)=>a+b,0)/reference.length; return Math.min(1,Math.abs(cm-rm)/(Math.abs(rm)+1)); }

@@ -1,0 +1,4 @@
+export type AttestorSecurityPolicy = { requireAggregateSignatureForWrites: boolean; requireSupermajorityForReads: boolean; maxMessagePayloadBytes: number; maxContinuityBlocks: number; requireAcknowledgementForHighValue: boolean; highValueAtomic: bigint };
+export const defaultSecurityPolicy: AttestorSecurityPolicy = { requireAggregateSignatureForWrites: true, requireSupermajorityForReads: true, maxMessagePayloadBytes: 128_000, maxContinuityBlocks: 10_000, requireAcknowledgementForHighValue: true, highValueAtomic: 1_000_000n };
+
+export function validatePayload(payloadHex: string, policy = defaultSecurityPolicy): void { const bytes = Math.floor((payloadHex.replace(/^0x/, "").length + 1) / 2); if (bytes > policy.maxMessagePayloadBytes) throw new Error("Attestcoin payload exceeds configured safety limit."); }

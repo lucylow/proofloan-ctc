@@ -1,0 +1,2 @@
+export interface AIBChainMetricEvent { name:string; value:number; tags?:Record<string,string>; timestampMs:number; }
+export class AIBlockchainMetrics { readonly events:AIBChainMetricEvent[]=[]; record(name:string,value:number,tags?:Record<string,string>){this.events.push({name,value,tags,timestampMs:Date.now()});} summary(){return this.events.reduce<Record<string,number>>((a,e)=>(a[e.name]=(a[e.name]??0)+e.value,a),{});}}

@@ -1,0 +1,1 @@
+export class ShutdownController{private stopping=false;requestStop(){this.stopping=true}isStopping(){return this.stopping}async drain(tasks:Promise<unknown>[],timeoutMs:number){const timeout=new Promise<void>(r=>setTimeout(r,timeoutMs));await Promise.race([Promise.allSettled(tasks).then(()=>undefined),timeout])}}

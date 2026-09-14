@@ -1,0 +1,3 @@
+export type P2PConfig={port:number;noMdns:boolean;bootNodes:string[];publicAddress?:string};
+export function validateP2PConfig(c:P2PConfig):string[]{const e:string[]=[];if(c.port<1||c.port>65535)e.push('P2P port must be 1..65535.');if(!c.noMdns)e.push('mDNS discovery is enabled; this is usually unsuitable for production WAN operation.');if(c.bootNodes.length===0)e.push('No boot nodes are configured; peer discovery may fail.');if(!c.publicAddress)e.push('No stable public address is configured; NAT reachability may be unstable.');return e}
+export function peerDialTargets(c:P2PConfig):string[]{return [...c.bootNodes,...(c.publicAddress?[c.publicAddress]:[])];}

@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest';import {isFinal} from './finality-policy';describe('finality',()=>{it('requires confirmations and buffer',()=>expect(isFinal(20,5,{minConfirmations:12,reorgBuffer:2})).toBe(true))})

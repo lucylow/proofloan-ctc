@@ -1,0 +1,1 @@
+export function isExpired(endAt:string,now=Date.now()):boolean{return now>Date.parse(endAt);} export function secondsUntil(ts:string,now=Date.now()):number{return Math.max(0,Math.floor((Date.parse(ts)-now)/1000));}

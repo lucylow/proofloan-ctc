@@ -1,0 +1,1 @@
+export function blockchainAIReadiness(input:{sourceReachable:boolean;proofsAvailable:boolean;featuresAvailable:boolean;modelAvailable:boolean}){ return [input.sourceReachable,input.proofsAvailable,input.featuresAvailable,input.modelAvailable].filter(Boolean).length/4; }

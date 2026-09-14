@@ -1,0 +1,1 @@
+import {describe,it,expect} from "vitest";import {LeaseManager} from "./leases";describe("lease",()=>{it("fences ownership",()=>{const l=new LeaseManager(()=>1000);expect(l.acquire("k","a",100)?.owner).toBe("a");expect(l.acquire("k","b",100)).toBeNull();})})

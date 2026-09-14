@@ -1,0 +1,2 @@
+export type Submission={idempotencyKey:string;txHash:string;submittedAt:string};
+export class SubmissionLedger{private rows=new Map<string,Submission>();put(row:Submission){const prior=this.rows.get(row.idempotencyKey);if(prior&&prior.txHash!==row.txHash)throw new Error('idempotency collision');this.rows.set(row.idempotencyKey,row);return this.rows.get(row.idempotencyKey)!}get(key:string){return this.rows.get(key)}has(key:string){return this.rows.has(key)}}

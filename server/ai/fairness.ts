@@ -1,0 +1,3 @@
+import type { AiDecisionEnvelope } from "./aiTypes";
+export type GroupMetric={group:string,count:number,avgPd30:number,avgConfidence:number,abstainRate:number};
+export function compareGroups(rows:Array<{group:string,envelope:AiDecisionEnvelope}>):GroupMetric[]{const groups=new Map<string,Array<AiDecisionEnvelope>>(); for(const r of rows){const a=groups.get(r.group)||[];a.push(r.envelope);groups.set(r.group,a)} return [...groups.entries()].map(([group,a])=>({group,count:a.length,avgPd30:a.reduce((s,x)=>s+x.decision.pd30,0)/(a.length||1),avgConfidence:a.reduce((s,x)=>s+x.decision.confidence,0)/(a.length||1),abstainRate:a.filter(x=>x.abstained).length/(a.length||1)}));}

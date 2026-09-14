@@ -1,0 +1,21 @@
+{
+  "seed": "proofloan-attestcoin-mock-v1",
+  "generatedAt": "2026-09-13T12:00:00.000Z",
+  "presentationOnly": true,
+  "scenarios": [
+    { "value": "hero", "label": "Hero demo", "description": "Balanced protocol walkthrough for the default presentation." },
+    { "value": "cross-chain-wealth", "label": "Cross-chain wealth", "description": "Evidence and balances across five source chains." },
+    { "value": "strong-repayment", "label": "Strong repayment", "description": "Dense verified repayment history and a strong risk tier." },
+    { "value": "fresh-evidence", "label": "Fresh evidence", "description": "Recently attested facts with high freshness scores." },
+    { "value": "aging-evidence", "label": "Aging evidence", "description": "Older facts that should be visibly labeled as aging or stale." },
+    { "value": "proof-delay", "label": "Proof delay", "description": "Proofs waiting on attestation availability." },
+    { "value": "proof-rejected", "label": "Proof rejected", "description": "Creditcoin verification rejected the proof." },
+    { "value": "partial-attestation", "label": "Partial attestation", "description": "Quorum is incomplete; facts stay unverified." },
+    { "value": "multi-chain", "label": "Multi-chain", "description": "Even coverage across Ethereum, Polygon, Arbitrum, Base, and Optimism." },
+    { "value": "new-wallet", "label": "New wallet", "description": "Sparse history and a young wallet identity." },
+    { "value": "high-risk", "label": "High risk", "description": "Late payments and RiskGuard rejection." },
+    { "value": "empty", "label": "Empty state", "description": "No presentation records." },
+    { "value": "recovery", "label": "Recovery", "description": "Degraded protocol health with retryable proof failures." },
+    { "value": "judge", "label": "Judge mode", "description": "Full Attestcoin trust path with provenance visible for review." }
+  ]
+}

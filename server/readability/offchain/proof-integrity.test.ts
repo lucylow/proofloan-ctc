@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest';import {proofFingerprint,assertProofFingerprint} from './proof-integrity';describe('proof integrity',()=>{it('hashes deterministically',()=>{const p={a:1,b:2};const h=proofFingerprint(p);expect(()=>assertProofFingerprint(p,h)).not.toThrow()})})

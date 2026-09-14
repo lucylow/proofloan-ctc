@@ -1,0 +1,1 @@
+export class GuardianService { private frozenUntil = 0; freeze(untilMs:number){if(untilMs>Date.now())this.frozenUntil=untilMs;} isFrozen(now=Date.now()){return now<this.frozenUntil;} clear(){this.frozenUntil=0;} }

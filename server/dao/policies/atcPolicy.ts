@@ -1,0 +1,3 @@
+export interface AtcGovernancePolicy { operatorRewardBps:number; burnBps:number; treasuryBps:number; maxActionFeeAtc:string; freeRead:boolean; }
+export const DEFAULT_ATC_GOVERNANCE_POLICY:AtcGovernancePolicy={operatorRewardBps:7000,burnBps:3000,treasuryBps:0,maxActionFeeAtc:"1000000",freeRead:true};
+export function validateAtcPolicy(p:AtcGovernancePolicy):string[]{const e:string[]=[]; if(p.operatorRewardBps+p.burnBps+p.treasuryBps!==10000)e.push("fee split must total 10000 bps"); if(!p.freeRead)e.push("freeRead must remain true"); if(BigInt(p.maxActionFeeAtc)<0n)e.push("maxActionFeeAtc"); return e;}

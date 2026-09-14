@@ -1,0 +1,5 @@
+import type { OperatorNodeConfig } from './types';
+import { redactRpc } from './security';
+
+export function dockerRunArgs(config:OperatorNodeConfig,image:string):string[]{ const args=['docker','run','-d','--name',`${config.name}`,'--entrypoint','/bin/attestor','-p',`${config.p2pPort}:${config.p2pPort}`,'-p',`${config.apiPort}:${config.apiPort}`,'-v',`$PWD/config.yaml:/config.yaml:ro`,'-v',`$PWD/${config.logsPath}:/logs`,'-v','$PWD/data:/data',image,'--config','/config.yaml','--logs','/logs']; return args; }
+export function safeConfigPreview(config:Partial<OperatorNodeConfig>):Record<string,unknown>{ return {name:config.name,chainKey:config.chainKey,publicAddress:config.publicAddress,logsPath:config.logsPath,apiPort:config.apiPort,p2pPort:config.p2pPort,noMdns:config.noMdns,bootNodes:config.bootNodes?.length??0,ethUrl:config.eth?.url?redactRpc(config.eth.url):undefined,cc3Url:config.cc3?.url?redactRpc(config.cc3.url):undefined,secretConfigured:Boolean(config.secret)}; }

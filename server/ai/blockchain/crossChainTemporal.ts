@@ -1,0 +1,1 @@
+export function temporalAlignment(timestamps:number[]){ if(timestamps.length<2)return 0; const gaps=timestamps.slice(1).map((t,i)=>Math.abs(t-timestamps[i])); const avg=gaps.reduce((a,b)=>a+b,0)/gaps.length; return Math.max(0,Math.min(1,Math.exp(-avg/86_400_000))); }

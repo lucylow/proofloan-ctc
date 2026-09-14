@@ -1,0 +1,1 @@
+export class QueryDedup{private keys=new Set<string>();seen(key:string){return this.keys.has(key)}remember(key:string){this.keys.add(key)}forget(key:string){this.keys.delete(key)}size(){return this.keys.size}}

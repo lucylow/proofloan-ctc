@@ -1,0 +1,1 @@
+export function policyReasoning(input:{score:number;confidence:number;proofCoverage:number}){ const reasons:string[]=[]; if(input.proofCoverage<0.5)reasons.push('EVIDENCE_GAP'); if(input.confidence<0.4)reasons.push('LOW_CONFIDENCE'); if(input.score<0.4)reasons.push('WEAK_BLOCKCHAIN_PROFILE'); return reasons; }

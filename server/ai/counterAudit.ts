@@ -1,0 +1,1 @@
+import type { AiCounterfactual } from "./aiTypes"; export function summarizeCounterfactuals(rows:AiCounterfactual[]){return {count:rows.length,riskChanges:rows.filter(r=>r.riskTierChanged).length,maxAbsPd30Delta:rows.reduce((m,r)=>Math.max(m,Math.abs(r.pd30Delta)),0)}}

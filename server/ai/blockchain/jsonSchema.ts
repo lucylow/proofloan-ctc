@@ -1,0 +1,1 @@
+export const blockchainAIOutputSchema = { type:'object', required:['pdAdjustment','riskTier','confidence','reasons'], properties:{ pdAdjustment:{type:'number',minimum:0,maximum:1}, riskTier:{type:'string'}, confidence:{type:'number',minimum:0,maximum:1}, reasons:{type:'array'} } } as const;

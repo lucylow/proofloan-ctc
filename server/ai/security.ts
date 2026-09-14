@@ -1,0 +1,1 @@
+export function redactAddress(value:string):string{if(value.length<10)return "***";return `${value.slice(0,6)}…${value.slice(-4)}`} export function redactHash(value:string):string{if(value.length<12)return "***";return `${value.slice(0,8)}…${value.slice(-6)}`}

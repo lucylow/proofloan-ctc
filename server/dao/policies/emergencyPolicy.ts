@@ -1,0 +1,2 @@
+export interface EmergencyPolicy { guardianCount:number; maxEmergencyDurationSeconds:number; cooldownSeconds:number; affectedSystems:Array<"credit-offers"|"attestor-admission"|"atc-actions"|"ai-underwriting">; }
+export const DEFAULT_EMERGENCY_POLICY:EmergencyPolicy={guardianCount:3,maxEmergencyDurationSeconds:6*60*60,cooldownSeconds:24*60*60,affectedSystems:["credit-offers","attestor-admission","atc-actions"]};

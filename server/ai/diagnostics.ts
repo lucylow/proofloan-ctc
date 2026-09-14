@@ -1,0 +1,1 @@
+import { aiHealth } from "./health"; export function aiDiagnostics(){return {health:aiHealth(),checks:["bounded-output","monotonic-probabilities","evidence-linked-explanations","abstention","deterministic-fallback"]}}

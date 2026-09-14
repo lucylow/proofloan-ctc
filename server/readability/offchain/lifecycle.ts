@@ -1,0 +1,1 @@
+export type Lifecycle='created'|'starting'|'running'|'draining'|'stopped'|'failed';export class LifecycleController{private state:Lifecycle='created';transition(next:Lifecycle){this.state=next;return next}get(){return this.state}}

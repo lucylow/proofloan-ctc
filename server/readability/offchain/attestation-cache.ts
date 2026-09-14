@@ -1,0 +1,2 @@
+export type Attestation={chainKey:number;sourceBlock:number;sourceBlockHash:string;validUntil:string};
+export class AttestationCache{private rows=new Map<string,Attestation>();put(a:Attestation){this.rows.set(`${a.chainKey}:${a.sourceBlock}`,a)}get(chainKey:number,block:number){return this.rows.get(`${chainKey}:${block}`)}fresh(chainKey:number,block:number,now=Date.now()){const a=this.get(chainKey,block);return !!a&&Date.parse(a.validUntil)>now}}

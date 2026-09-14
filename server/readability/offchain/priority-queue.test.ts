@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest';import {PriorityQueue} from './priority-queue';describe('priority queue',()=>{it('pops lowest priority first',()=>{const q=new PriorityQueue<string>();q.push('b',2);q.push('a',1);expect(q.pop()).toBe('a')})})

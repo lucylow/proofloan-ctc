@@ -1,0 +1,1 @@
+import"./react-vendor-CfWXiJ_q.js";function i(e){const r=Date.now()-new Date(e).getTime(),t=Math.floor(r/6e4);if(t<1)return"Just now";if(t<60)return`${t}m ago`;const o=Math.floor(t/60);return o<24?`${o}h ago`:`${Math.floor(o/24)}d ago`}export{i as r};

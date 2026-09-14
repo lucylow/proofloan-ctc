@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest';import {validateWorkerConfig} from './config-validation';import {defaultWorkerConfig} from './config';describe('config',()=>{it('accepts defaults',()=>expect(validateWorkerConfig(defaultWorkerConfig)).toBe(defaultWorkerConfig))})
