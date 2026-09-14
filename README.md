@@ -3,14 +3,14 @@
 ## Verifiable Cross-Chain Credit Underwriting for the Real World
 
 Pitchdeck Slides:
-https://canva.link/dor3hfsg44zlhej 
+- https://canva.link/dor3hfsg44zlhej 
 
 Blockchain Whitepaper:
-https://docs.google.com/document/d/1heJo1Bt5VC07fGQ4jd_t2f2MR8wRzQsVBjmx91Chjxw/edit?usp=sharing
+- https://docs.google.com/document/d/1heJo1Bt5VC07fGQ4jd_t2f2MR8wRzQsVBjmx91Chjxw/edit?usp=sharing
 
 Manus Link 
-Old Link:
-New Link: 
+- Old Link: https://proofloan-4pbq23bo.manus.space/?code=gHWSfmjvWSzKwV27ZumFFK 
+- New Link: 
 
 > **AI can advise, but verified evidence and deterministic policy decide what is allowed to cross the execution boundary.**
 
